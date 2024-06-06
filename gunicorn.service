@@ -7,7 +7,8 @@ User=claudiu
 Group=claudiu
 WorkingDirectory=/home/claudiu/app/src/
 environment="PATH=/home/claudiu/app/venv/bin"
-ExecStart=/home/claudiu/app/venv/bin/gunicorn -w 4 -k uvicorn.workers.Uvicorn.Worker app.main:app --bind 0.0.0.0:8000
+EnvironmentFile=/home/claudiu/.env
+ExecStart=/home/claudiu/app/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
 
 [Install]
 WantedBy=multi-user.target
