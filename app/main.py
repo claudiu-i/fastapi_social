@@ -31,12 +31,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message":"Pushing out to ubuntu"}
-
-
-"""
-Gets all Posts using SQL
-"""
+    return {"message":"made a change"}
 
 
 
