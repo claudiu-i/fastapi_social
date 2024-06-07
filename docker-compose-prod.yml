@@ -1,0 +1,32 @@
+services:
+    api:
+        build: .
+        depends_on:
+            - postgres
+        ports:
+            # - <port on localhost>:<port on container>
+          - 80:8000
+        # command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+        environment:
+            - DATABASE_HOSTNAME=$ {DATABASE_HOSTNAME }
+            - DATABASE
+            _PORT=$ (DATABASE_ PORT}
+            - DATABASE
+            _PASSWORD=$ (DATABASE_PASSWORD}
+            - DATABASE_NAME -$(DATABASE_NAME}
+            DATABASE_USERNAME-$(DATABASE_USERNAME}
+            - SECRET_KEY=${SECRET_KEY}
+            - ALGORITHM=$ {ALGORITHM}
+            - ACCESS_TOKEN_EXPIRE_MINUTES=$(ACCESS_TOKEN_EXPIRE_MINUTES} 
+    postgres:
+            image: postgres 
+            environment:
+            - POSTGRES_PASSWORD=$(DATABASE_PASSWORD}
+            - POSTGRES_ DB=$(DATABASE_NAME)
+
+        volumes:
+            - postgres-db:/var/lib/postgresql/data
+
+volumes:
+    postgres-db:
+
