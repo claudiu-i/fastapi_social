@@ -31,7 +31,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message":"made a change"}
+    return {"message":"I love saaya so much and I would never do anything to lose her because she's the best."}
 
 
 
